@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-5">
+  <v-container >
     <v-row>
       <v-col cols="12">
         <h1 class="display-2 font-weight-bold" style="lineHeight: 1.25">De ultieme ondergoedervaring!</h1>
@@ -29,7 +29,11 @@
     </v-row>
     <v-row style="position: relative">
       <v-col cols="12">
-        <v-img src="images/product-package.png" alt="Lucky Wear Package" style="border-radius: 24px" />
+        <v-img src="images/product-package_square.png"
+               alt="Lucky Wear Package"
+               style="border-radius: 24px"
+               placeholder
+        />
       </v-col>
       <div class="image-overlay">
         <div>
@@ -79,5 +83,7 @@ export default {
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+
+  /*aspect-ratio: 1 / 1; object-fit: cover;*/
 }
 </style>
