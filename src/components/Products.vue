@@ -4,23 +4,24 @@
       <v-col cols="12">
         <h1 class="font-weight-bold">Mannen ondergoed</h1>
         <p class="price">€14,95 p.m.</p>
-        <v-rating value="5" readonly color="amber"></v-rating>
+        <v-rating v-model="rating" readonly color="amber" background-color="amber"></v-rating>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" class="d-flex justify-center mb-4">
-        <v-img src="images/product-front.jpg" alt="Men's Underwear" class="main-image"></v-img>
+        <v-carousel v-model="selectedImage" show-arrows class="main-image carousel-shadow">
+          <v-carousel-item v-for="(image, index) in images" :key="index" :value="index">
+            <v-img :src="image.src" :alt="image.alt" class="main-image"></v-img>
+          </v-carousel-item>
+        </v-carousel>
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="6" class="d-flex justify-center mb-2">
-        <v-img src="images/product-front.jpg" alt="Lucky Wear Package" class="small-image"></v-img>
-      </v-col>
-      <v-col cols="6" class="d-flex justify-center mb-2">
-        <v-img src="images/product-packages.png" alt="Men's Underwear Small" class="small-image"></v-img>
+      <v-col v-for="(image, index) in images" :key="index" cols="6" class="d-flex justify-center mb-2">
+        <v-img :src="image.src" :alt="image.alt" class="small-image shadow" @click="selectedImage = index"></v-img>
       </v-col>
     </v-row>
-    <v-row class=" my-4">
+    <v-row class="my-4">
       <v-col cols="12">
         <v-btn class="button-class" rounded>Probeer nu gratis!</v-btn>
       </v-col>
@@ -63,6 +64,16 @@
 <script>
 export default {
   name: 'ProductSection',
+  data() {
+    return {
+      selectedImage: 0,
+      rating: 5,
+      images: [
+        { src: 'images/product-front.jpg', alt: "Men's Underwear" },
+        { src: 'images/product-packages.png', alt: 'Men\'s Underwear Small' },
+      ],
+    };
+  },
 };
 </script>
 
@@ -81,10 +92,17 @@ export default {
 .small-image {
   width: 100%;
   border-radius: 12px;
+  cursor: pointer;
 }
 .button-class {
   background-color: orange;
   color: white;
+}
+.carousel-shadow {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.v-carousel__content {
+  padding-bottom: 0 !important;
 }
 .v-expansion-panel-content ul {
   padding-left: 1.5rem;
@@ -93,4 +111,3 @@ export default {
   list-style-type: disc;
 }
 </style>
-
