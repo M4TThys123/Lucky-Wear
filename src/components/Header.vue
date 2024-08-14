@@ -3,17 +3,18 @@
     <v-toolbar-title>
       <img src="svg/lucky-wear__black.svg" alt="Lucky Wear Logo" class="logo" style="width: 135px">
     </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-btn rounded  style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
+    <v-spacer v-show="$vuetify.display.smAndUp"></v-spacer>
+    <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
+    <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
     <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
 
     <v-navigation-drawer
-        v-model="drawer"
-        app
-        temporary
-        right
-        color="#F7F8FA"
-    >
+      v-model="drawer"
+      app
+      temporary
+      right
+      color="#F7F8FA"
+      style="z-index: 1000;"    >
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title">
           <v-list-item-content>
@@ -44,7 +45,9 @@ export default {
   },
   methods: {
     toggleDrawer() {
+      console.log('toggleDrawer called'); // Debugging line
       this.drawer = !this.drawer;
+      console.log('Drawer state:', this.drawer); // Debugging line
     },
   },
 };
