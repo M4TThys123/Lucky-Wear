@@ -14,9 +14,9 @@
       temporary
       right
       color="#F7F8FA"
-      style="z-index: 1000;"    >
+      style="z-index: 1000;">
       <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title">
+        <v-list-item v-for="item in items" :key="item.title" :href="item.href">
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -36,10 +36,10 @@ export default {
     return {
       drawer: false,
       items: [
-        { title: 'Producten' },
-        { title: 'Prijzen' },
-        { title: 'Over' },
-        { title: 'Contact' },
+        { title: 'Producten', href: '#product-section' },
+        { title: 'Prijzen', href: '#pricing-section' },
+        { title: 'Over', href: '#about-section' },
+        { title: 'Contact', href: '#contact-section' },
       ],
     };
   },

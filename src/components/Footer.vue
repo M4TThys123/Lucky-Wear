@@ -5,10 +5,10 @@
         <v-col cols="12" class="text-center">
           <v-img src="images/lucky-wear-logo.png" alt="Lucky Wear Logo" class="logo-image mb-4"></v-img>
           <p class="text-orange">Alkmaar<br>The Netherlands</p>
-          <v-list dense>
-            <v-list-item v-for="(link, index) in links" :key="index">
+          <v-list dense style="background: none !important;">
+            <v-list-item v-for="(link, index) in links" :key="index" :href="link.href">
               <v-list-item-content>
-                <v-list-item-title class="text-white">{{ link }}</v-list-item-title>
+                <v-list-item-title class="text-white">{{ link.title }}</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -27,7 +27,14 @@ export default {
   name: 'FooterComponent',
   data() {
     return {
-      links: ['Producten', 'Prijzen', 'Over', 'Contact'],
+      links: [
+        { title: 'Hero', href: '#hero-section' },
+        { title: 'Voordelen', href: '#voordelen-section' },
+        { title: 'Producten', href: '#product-section' },
+        { title: 'Aanbiedingen', href: '#aanbiedingen-section' },
+        { title: 'Over', href: '#about-section' },
+        { title: 'Contact', href: '#contact-section' },
+      ],
     };
   },
 };
