@@ -3,12 +3,24 @@
     <HeaderComponent></HeaderComponent>
 
     <v-main>
+      <section id="hero-section">
         <HeroSection class="my-5 pb-5"></HeroSection>
+      </section>
+      <section id="voordelen-section">
         <VoordelenSection class="my-5 py-5"></VoordelenSection>
+      </section>
+      <section id="product-section">
         <ProductSection class="my-5 py-5"></ProductSection>
-        <AanbiedingenSection  class="my-5 py-5"></AanbiedingenSection>
+      </section>
+      <section id="aanbiedingen-section">
+        <AanbiedingenSection class="my-5 py-5"></AanbiedingenSection>
+      </section>
+      <section id="about-section">
         <AboutSection class="my-5 py-5"></AboutSection>
-      <ContactSection class="my-5 py-5"></ContactSection>
+      </section>
+      <section id="contact-section">
+        <ContactSection class="my-5 py-5"></ContactSection>
+      </section>
     </v-main>
 
     <FooterComponent></FooterComponent>
