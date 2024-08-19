@@ -1,32 +1,39 @@
 <template>
   <v-app-bar color="white" app>
     <v-toolbar-title>
-      <img src="svg/lucky-wear__black.svg" alt="Lucky Wear Logo" class="logo" style="width: 135px">
+      <a href="/">
+        <img src="svg/lucky-wear__black.svg" alt="Lucky Wear Logo" class="logo" style="width: 135px">
+      </a>    
     </v-toolbar-title>
     <v-spacer v-show="$vuetify.display.smAndUp"></v-spacer>
-    <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
-    <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
+    <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
+      <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
+    </a>
+    <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
+      <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
+    </a>
     <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+  </v-app-bar>
+
 
     <v-navigation-drawer
       v-model="drawer"
-      app
-      temporary
-      right
+      location="right"
       color="#F7F8FA"
-      style="z-index: 1000;">
+      app>
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" @click="scrollToSection(item.href)">
-          <v-list-item-content>
+          <v-list-item-content @click="handleItemClick(item.href)">
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item>
-          <v-icon>mdi-instagram</v-icon>
+          <a href="https://www.instagram.com/luckywear_nl?igsh=bzJkbHFiOGdrM2gz" target="_blank" rel="noopener noreferrer">
+            <v-icon color="black">mdi-instagram</v-icon>
+          </a>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-  </v-app-bar>
 </template>
 
 <script>
@@ -36,8 +43,10 @@ export default {
     return {
       drawer: false,
       items: [
+        { title: 'Home', href: '#hero-section' },
+        { title: 'Voordelen', href: '#voordelen-section' },
         { title: 'Producten', href: '#product-section' },
-        { title: 'Prijzen', href: '#pricing-section' },
+        { title: 'Aanbiedingen', href: '#aanbiedingen-section' },
         { title: 'Over', href: '#about-section' },
         { title: 'Contact', href: '#contact-section' },
       ],
@@ -58,6 +67,10 @@ export default {
         behavior: 'smooth',
       });
     },
+    handleItemClick(href) {
+      this.scrollToSection(href);
+      this.drawer = false;
+    },
   },
 };
 </script>
@@ -70,3 +83,4 @@ export default {
   margin-right: 10px;
 }
 </style>
+

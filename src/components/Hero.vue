@@ -12,8 +12,10 @@
     </v-row>
     <v-row>
       <v-col cols="12" class="d-flex">
-        <v-btn class="button-class" rounded>Probeer gratis!</v-btn>
-        <v-btn variant="text">
+        <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
+          <v-btn class="button-class" rounded>Probeer gratis!</v-btn>
+        </a>
+        <v-btn variant="text" @click="$root.scrollToSection('#contact-section')">
           <span>Contact</span>
           <v-icon>mdi-arrow-right</v-icon>
         </v-btn>

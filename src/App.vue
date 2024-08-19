@@ -56,5 +56,16 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    scrollToSection(id) {
+      const headerHeight = document.querySelector('.v-app-bar').offsetHeight;
+      const section = document.querySelector(id);
+      const sectionPosition = section.offsetTop - headerHeight;
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth',
+      });
+    },
+  },
 }
 </script>
