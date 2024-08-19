@@ -16,7 +16,7 @@
       color="#F7F8FA"
       style="z-index: 1000;">
       <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title" :href="item.href">
+        <v-list-item v-for="item in items" :key="item.title" @click="scrollToSection(item.href)">
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
@@ -48,6 +48,15 @@ export default {
       console.log('toggleDrawer called'); // Debugging line
       this.drawer = !this.drawer;
       console.log('Drawer state:', this.drawer); // Debugging line
+    },
+    scrollToSection(id) {
+      const headerHeight = document.querySelector('.v-app-bar').offsetHeight;
+      const section = document.querySelector(id);
+      const sectionPosition = section.offsetTop - headerHeight;
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth',
+      });
     },
   },
 };

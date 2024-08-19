@@ -6,7 +6,7 @@
           <v-img src="images/lucky-wear-logo.png" alt="Lucky Wear Logo" class="logo-image mb-4"></v-img>
           <p class="text-orange">Alkmaar<br>The Netherlands</p>
           <v-list dense style="background: none !important;">
-            <v-list-item v-for="(link, index) in links" :key="index" :href="link.href">
+            <v-list-item v-for="(link, index) in links" :key="index" @click="scrollToSection(link.href)">
               <v-list-item-content>
                 <v-list-item-title class="text-white">{{ link.title }}</v-list-item-title>
               </v-list-item-content>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       links: [
-        { title: 'Hero', href: '#hero-section' },
+        { title: 'Home', href: '#hero-section' },
         { title: 'Voordelen', href: '#voordelen-section' },
         { title: 'Producten', href: '#product-section' },
         { title: 'Aanbiedingen', href: '#aanbiedingen-section' },
@@ -36,6 +36,17 @@ export default {
         { title: 'Contact', href: '#contact-section' },
       ],
     };
+  },
+  methods: {
+    scrollToSection(id) {
+      const headerHeight = document.querySelector('.v-app-bar').offsetHeight;
+      const section = document.querySelector(id);
+      const sectionPosition = section.offsetTop - headerHeight;
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>

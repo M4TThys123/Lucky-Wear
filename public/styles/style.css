@@ -7,6 +7,10 @@
     --color-blue: #F7A74B;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .button-class{
     color: var(--color-white) !important;
     background-color: var(--color-orange) !important;
