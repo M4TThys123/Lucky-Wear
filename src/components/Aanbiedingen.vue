@@ -16,13 +16,13 @@
           <v-card-subtitle>{{ offer.description }}</v-card-subtitle>
           <v-card-text>
             <div class="price">{{ offer.price }}</div>
-            <v-btn class="button-class mb-3" rounded>{{ offer.buttonText }}</v-btn>
+            <v-btn class="button-class mb-3" :href="formLink" target="_blank" rounded>{{ offer.buttonText }}</v-btn>
             <ul>
               <li v-for="(benefit, index) in offer.benefits" :key="index" :class="{ 'text-grey': benefit.greyedOut }">{{ benefit.text }}</li>
             </ul>
           </v-card-text>
           <v-card-actions>
-            <v-btn text color="primary">{{ offer.callToAction }}</v-btn>
+            <v-btn text color="primary" :href="formLink" target="_blank">{{ offer.callToAction }}</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -35,6 +35,7 @@ export default {
   name: 'AanbiedingenSection',
   data() {
     return {
+      formLink: 'https://eu.jotform.com/form/241725507462355',
       offers: [
         {
           title: 'Vrouwen lingerie',
