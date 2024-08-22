@@ -2,8 +2,8 @@
   <v-container>
     <v-row class="mt-4">
       <v-col cols="12" class="d-flex justify-center">
-        <v-btn :class="{'button-class': selectedCategory === 'men'}" @click="selectedCategory = 'men'">Men</v-btn>
-        <v-btn :class="{'button-class': selectedCategory === 'women'}" @click="selectedCategory = 'women'">Women</v-btn>
+        <v-btn :class="{'button-class': selectedCategory === 'men'}" @click="selectedCategory = 'men'">Mannen</v-btn>
+        <v-btn :class="{'button-class': selectedCategory === 'women'}" @click="selectedCategory = 'women'">Vrouwen</v-btn>
       </v-col>
     </v-row>
     <v-row class="mt-4">
@@ -15,7 +15,13 @@
     </v-row>
     <v-row>
       <v-col cols="12" class="d-flex justify-center mb-4">
-        <v-carousel v-model="selectedImage" show-arrows-on-hover hide-delimiters class="main-image carousel-shadow">
+        <v-carousel
+          v-model="selectedImage"
+          show-arrows-on-hover
+          hide-delimiters
+          class="main-image carousel-shadow"
+          height="300"
+        >
           <v-carousel-item v-for="(image, index) in currentImages" :key="index" :value="index">
             <v-img :src="image.src" :alt="image.alt" class="main-image"></v-img>
           </v-carousel-item>
@@ -98,6 +104,9 @@ export default {
     currentImages() {
       return this.selectedCategory === 'men' ? this.menImages : this.womenImages;
     },
+    // carouselHeight() {
+    //   return this.$vuetify.breakpoint.smAndDown ? 200 : 500;
+    // },
   },
 };
 </script>

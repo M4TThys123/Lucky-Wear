@@ -4,7 +4,6 @@
       <v-col cols="12">
         <v-card class="pa-4 elevation-1">
           <h2 class="headline font-weight-bold" style="font-size: 1.5rem;">Kom in contact</h2>
-
           <v-card-subtitle>
             Vul het formulier in of kom of mail ons direct en we komen terug op je vraag.
           </v-card-subtitle>
@@ -26,8 +25,9 @@
                 <v-icon color="blue" size="36">mdi-instagram</v-icon>
               </v-col>
             </v-row>
-            <v-form>
+            <v-form @submit.prevent="sendEmail">
               <v-text-field
+                  v-model="form.name"
                   label="Naam"
                   placeholder="Jouw naam"
                   prepend-inner-icon="mdi-account"
@@ -35,6 +35,7 @@
                   dense
               ></v-text-field>
               <v-text-field
+                  v-model="form.email"
                   label="E-mailadres"
                   placeholder="Mail adres"
                   prepend-inner-icon="mdi-email"
@@ -42,12 +43,13 @@
                   dense
               ></v-text-field>
               <v-textarea
+                  v-model="form.message"
                   label="Bericht"
                   placeholder="Stel ons je vraag..."
                   outlined
                   dense
               ></v-textarea>
-              <v-btn class="button-class mt-3" rounded block>Verstuur bericht</v-btn>
+              <v-btn type="submit" class="button-class mt-3" rounded block>Verstuur bericht</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
@@ -57,14 +59,37 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   name: 'ContactSection',
   data() {
     return {
+      form: {
+        name: '',
+        email: '',
+        message: ''
+      },
       mailtoLink: 'mailto:klantenservice@luckywear.nl',
       locationLink: 'https://www.google.com/maps?q=Alkmaar,The+Netherlands',
     };
   },
+  methods: {
+    sendEmail() {
+      const serviceID = process.env.VUE_APP_EMAILJS_SERVICE_ID;
+      const templateID = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
+      const userID = process.env.VUE_APP_EMAILJS_USER_ID;
+
+      emailjs.send(serviceID, templateID, this.form, userID)
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Bericht succesvol verzonden!');
+        }, (error) => {
+          console.log('FAILED...', error);
+          alert('Er is een fout opgetreden bij het verzenden van je bericht.');
+        });
+    }
+  }
 };
 </script>
 
@@ -76,7 +101,6 @@ export default {
   background-color: orange;
   color: white;
 }
-
 .no-underline {
   color: black;
   text-decoration: none;
