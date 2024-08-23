@@ -10,19 +10,25 @@
           <v-card-text>
             <v-row class="d-flex justify-center text-center mb-4">
               <v-col cols="12" md="4">
-                <v-icon color="blue" size="36">mdi-email</v-icon>
-                <p class="font-weight-bold">
-                  <a :href="mailtoLink" style="color: black;" class="no-underline">klantenservice@luckywear.nl</a>
-                </p>
+                <a :href="mailtoLink" style="color: black;"  target="_blank" class="no-underline">
+                  <v-icon color="blue" size="36">mdi-email</v-icon>
+                  <p class="font-weight-bold">
+                    klantenservice@luckywear.nl
+                  </p>
+                </a>
               </v-col>
               <v-col cols="12" md="4">
-                <v-icon color="blue" size="36">mdi-map-marker</v-icon>
-                <p class="font-weight-bold">
-                  <a :href="locationLink" style="color: black;" class="no-underline">Alkmaar<br>The Netherlands</a>
-                </p>
+                <a :href="locationLink" target="_blank" style="color: black;" class="no-underline">
+                  <v-icon color="blue" size="36">mdi-map-marker</v-icon>
+                  <p class="font-weight-bold">
+                    Alkmaar<br>The Netherlands
+                  </p>
+                </a>
               </v-col>
               <v-col cols="12" md="4">
-                <v-icon color="blue" size="36">mdi-instagram</v-icon>
+                <a :href="instagramLink"  target="_blank" style="color: black;" class="no-underline">
+                  <v-icon color="blue" size="36">mdi-instagram</v-icon>
+                </a>
               </v-col>
             </v-row>
             <v-form @submit.prevent="sendEmail">
@@ -72,6 +78,7 @@ export default {
       },
       mailtoLink: 'mailto:klantenservice@luckywear.nl',
       locationLink: 'https://www.google.com/maps?q=Alkmaar,The+Netherlands',
+      instagramLink: 'https://www.instagram.com/luckywear_nl/'
     };
   },
   methods: {
