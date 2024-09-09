@@ -10,8 +10,21 @@
 html {
   scroll-behavior: smooth;
 }
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 14px
+}
 
 .button-class{
     color: var(--color-white) !important;
     background-color: var(--color-orange) !important;
+    font-size: 16px!important;
+}
+
+.custom-chip-green .v-chip__prepend i {
+    color: #23E2A5 !important;
+}
+.custom-chip-orange .v-chip__prepend i {
+    color: var(--color-orange) !important;
 }

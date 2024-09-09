@@ -1,26 +1,26 @@
 <template>
-  <v-app-bar color="white" app>
-    <v-toolbar-title>
-      <a href="/">
-        <img src="svg/lucky-wear__black.svg" alt="Lucky Wear Logo" class="logo" style="width: 135px">
-      </a>    
-    </v-toolbar-title>
-    <v-spacer v-show="$vuetify.display.smAndUp"></v-spacer>
-    <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
-      <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
-    </a>
-    <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
-      <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
-    </a>
-    <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
-  </v-app-bar>
-
+  <div class="header-wrapper">
+    <v-app-bar color="white" app>
+      <v-toolbar-title>
+        <a href="/">
+          <img src="svg/lucky-wear__black.svg" alt="Lucky Wear Logo" class="logo" style="width: 135px">
+        </a>
+      </v-toolbar-title>
+      <v-spacer v-show="$vuetify.display.smAndUp"></v-spacer>
+      <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
+        <v-btn v-show="$vuetify.display.smAndDown" rounded  style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
+      </a>
+      <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
+        <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
+      </a>
+      <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+    </v-app-bar>
 
     <v-navigation-drawer
-      v-model="drawer"
-      location="right"
-      color="#F7F8FA"
-      app>
+        v-model="drawer"
+        location="right"
+        color="#F7F8FA"
+        app>
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" @click="scrollToSection(item.href)">
           <v-list-item-content @click="handleItemClick(item.href)">
@@ -34,7 +34,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+  </div>
 </template>
+
 
 <script>
 export default {
@@ -82,5 +84,10 @@ export default {
 .v-btn {
   margin-right: 10px;
 }
+.v-toolbar__content{
+  margin: 0 auto !important;
+  max-width: 1400px!important;
+}
+
 </style>
 
