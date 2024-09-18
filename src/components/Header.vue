@@ -8,6 +8,9 @@
         </a>
       </v-toolbar-title>
 
+      <v-spacer v-show="$vuetify.display.smAndDown"></v-spacer>
+
+
       <!-- Centered Navigation Links (as List Items) -->
       <div class="centered-nav" v-show="$vuetify.display.mdAndUp">
         <v-list dense>
@@ -17,7 +20,7 @@
               @click="handleItemClick(item.href)"
           >
             <v-list-item-content>
-              <a :href="item.href" class="nav-link">{{ item.title }}</a>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -117,8 +120,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 /* Center the navigation between logo and Instagram icon */
+.v-toolbar-title{
+  width: 140px;
+  min-width: auto;
+}
+
 .centered-nav {
   display: flex;
   justify-content: center;
@@ -161,6 +169,8 @@ export default {
     display: block;
   }
 
+
+
   .centered-nav, .cta-desktop-button {
     display: none;
   }
@@ -180,5 +190,12 @@ export default {
 .header-inner {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .v-toolbar-title{
+    max-width: 140px;
+
+  }
 }
 </style>
