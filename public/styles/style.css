@@ -13,7 +13,7 @@ html {
 .container{
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 14px
+    /*padding: 0 14px*/
 }
 
 .button-class{
@@ -27,4 +27,11 @@ html {
 }
 .custom-chip-orange .v-chip__prepend i {
     color: var(--color-orange) !important;
+}
+
+/*header*/
+/*descktop */
+.v-toolbar__content{
+    max-width: 1400px;
+    margin: 0 auto;
 }

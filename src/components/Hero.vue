@@ -109,12 +109,6 @@ export default {
 <style scoped>
 
 
-
-
-
-
-
-
 .desktop-image {
   max-width: 100%;
   border-radius: 24px;

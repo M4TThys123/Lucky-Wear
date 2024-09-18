@@ -8,12 +8,15 @@
       </v-toolbar-title>
       <v-spacer v-show="$vuetify.display.smAndUp"></v-spacer>
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
-        <v-btn v-show="$vuetify.display.smAndDown" rounded  style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
+        <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
       </a>
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
         <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
       </a>
-      <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon
+          @click="toggleDrawer"
+          v-show="isSmallScreen"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
 
     <v-navigation-drawer
@@ -37,10 +40,19 @@
   </div>
 </template>
 
-
 <script>
+import { useDisplay } from 'vuetify';
+
 export default {
   name: 'HeaderComponent',
+  setup() {
+    const { mdAndDown } = useDisplay();
+
+    // Returning mdAndDown so it's available in the template
+    return {
+      isSmallScreen: mdAndDown,
+    };
+  },
   data() {
     return {
       drawer: false,
@@ -89,5 +101,10 @@ export default {
   max-width: 1400px!important;
 }
 
-</style>
+/*desktop*/
+.header-inner{
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
+</style>
