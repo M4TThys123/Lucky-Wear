@@ -8,14 +8,19 @@
         </a>
       </v-toolbar-title>
 
-      <!-- Centered Navigation Links -->
+      <!-- Centered Navigation Links (as List Items) -->
       <div class="centered-nav" v-show="$vuetify.display.mdAndUp">
-        <v-btn text href="#hero-section">Home</v-btn>
-        <v-btn text href="#voordelen-section">Voordelen</v-btn>
-        <v-btn text href="#product-section">Producten</v-btn>
-        <v-btn text href="#aanbiedingen-section">Aanbiedingen</v-btn>
-        <v-btn text href="#about-section">Over</v-btn>
-        <v-btn text href="#contact-section">Contact</v-btn>
+        <v-list dense>
+          <v-list-item
+              v-for="item in items"
+              :key="item.title"
+              @click="handleItemClick(item.href)"
+          >
+            <v-list-item-content>
+              <a :href="item.href" class="nav-link">{{ item.title }}</a>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
       </div>
 
       <!-- Instagram Icon -->
@@ -23,10 +28,12 @@
         <v-icon color="black">mdi-instagram</v-icon>
       </v-btn>
 
+      <!-- Mobile CTA Button -->
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
         <v-btn v-show="$vuetify.display.smAndDown" rounded  style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
       </a>
 
+      <!-- Desktop CTA Button -->
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
         <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
       </a>
@@ -80,8 +87,8 @@ export default {
     return {
       drawer: false,
       items: [
-        { title: "Home", href: "#hero-section" },
-        { title: "Voordelen", href: "#voordelen-section" },
+        { title: "Home", href: "#hero-section", mobileOnly: true },
+        { title: "Voordelen", href: "#voordelen-section", mobileOnly: true },
         { title: "Producten", href: "#product-section" },
         { title: "Aanbiedingen", href: "#aanbiedingen-section" },
         { title: "Over", href: "#about-section" },
@@ -115,8 +122,23 @@ export default {
 .centered-nav {
   display: flex;
   justify-content: center;
-  flex-grow: 1; /* Take up available space */
-  gap: 20px; /* Spacing between nav links */
+  flex-grow: 1;
+  /*gap: 20px;*/
+}
+
+.centered-nav .v-list {
+  display: flex;
+  /*gap: 20px; !* Spacing between items *!*/
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: orange;
 }
 
 /* Styling for the desktop CTA button */

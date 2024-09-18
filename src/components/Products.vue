@@ -8,7 +8,7 @@
     </v-row>
     <v-row class="mt-4">
       <v-col cols="12">
-        <h1 class="font-weight-bold">{{ selectedCategory === 'men' ? 'Mannen ondergoed' : 'Vrouwen lingery' }}</h1>
+        <h1 class="font-weight-bold">{{ selectedCategory === 'men' ? 'Mannen ondergoed' : 'Vrouwen lingerie set' }}</h1>
         <p class="price">{{ selectedCategory === 'men' ? '€14,95 p.m.' : '€29,95 p.m.' }}</p>
         <v-rating v-model="rating" readonly color="amber" background-color="amber"></v-rating>
       </v-col>

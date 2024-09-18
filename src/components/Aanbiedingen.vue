@@ -38,7 +38,7 @@ export default {
       formLink: 'https://eu.jotform.com/form/241725507462355',
       offers: [
         {
-          title: 'Vrouwen lingerie',
+          title: 'Vrouwen lingerie set',
           description: 'Comfort en kwaliteit voor de moderne vrouw.',
           price: '€29,95 p.m.',
           buttonText: 'Probeer 30 dagen gratis!',
