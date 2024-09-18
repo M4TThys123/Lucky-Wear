@@ -10,7 +10,6 @@
 
       <v-spacer v-show="$vuetify.display.smAndDown"></v-spacer>
 
-
       <!-- Centered Navigation Links (as List Items) -->
       <div class="centered-nav" v-show="$vuetify.display.mdAndUp">
         <v-list dense>
@@ -33,7 +32,7 @@
 
       <!-- Mobile CTA Button -->
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
-        <v-btn v-show="$vuetify.display.smAndDown" rounded  style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
+        <v-btn v-show="$vuetify.display.smAndDown" rounded style="margin-right: 4px!important;" class="button-class">Probeer nu!</v-btn>
       </a>
 
       <!-- Desktop CTA Button -->
@@ -99,9 +98,20 @@ export default {
       ],
     };
   },
+  watch: {
+    // Watch for changes in screen size and close the drawer on large screens
+    isSmallScreen(val) {
+      if (!val) {
+        this.drawer = false; // Close drawer when resizing to larger screen
+      }
+    }
+  },
   methods: {
     toggleDrawer() {
-      this.drawer = !this.drawer;
+      // Only toggle the drawer on small screens
+      if (this.isSmallScreen) {
+        this.drawer = !this.drawer;
+      }
     },
     scrollToSection(id) {
       const headerHeight = document.querySelector(".v-app-bar").offsetHeight;
@@ -114,15 +124,15 @@ export default {
     },
     handleItemClick(href) {
       this.scrollToSection(href);
-      this.drawer = false;
+      this.drawer = false; // Close the drawer after clicking a link
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 /* Center the navigation between logo and Instagram icon */
-.v-toolbar-title{
+.v-toolbar-title {
   width: 140px;
   min-width: auto;
 }
@@ -131,12 +141,10 @@ export default {
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  /*gap: 20px;*/
 }
 
 .centered-nav .v-list {
   display: flex;
-  /*gap: 20px; !* Spacing between items *!*/
 }
 
 .nav-link {
@@ -169,8 +177,6 @@ export default {
     display: block;
   }
 
-
-
   .centered-nav, .cta-desktop-button {
     display: none;
   }
@@ -193,9 +199,8 @@ export default {
 }
 
 @media (min-width: 960px) {
-  .v-toolbar-title{
+  .v-toolbar-title {
     max-width: 140px;
-
   }
 }
 </style>
