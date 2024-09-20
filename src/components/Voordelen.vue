@@ -1,5 +1,6 @@
 <template>
-  <v-container style="background: var(--color-background-grey)">
+  <div class="voordelen-wrapper my-md-10"></div>
+  <v-container >
     <v-row class="my-4">
       <v-col cols="12" md="4" class="d-flex align-start">
         <div class="ml-3">
@@ -44,5 +45,9 @@ export default {
 }
 .icon-title {
   margin-right: 8px;
+}
+.voordelen-wrapper{
+  width: 100%;
+  background: var(--color-background-grey)
 }
 </style>

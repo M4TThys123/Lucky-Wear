@@ -17,12 +17,20 @@
               rounded="xl"
               v-for="item in items"
               :key="item.title"
+              v-if="!item.subItems"
               @click="handleItemClick(item.href)"
           >
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+          <!-- Use BulletPointMenu Component for Products -->
+          <bullet-point-menu
+              title="Producten"
+              :subItems="productSubItems"
+              @item-click="handleItemClick"
+          />
         </v-list>
       </div>
 
@@ -77,6 +85,7 @@
 
 <script>
 import { useDisplay } from 'vuetify';
+import BulletPointMenu from './BulletPointMenu.vue'; // Import the new component
 
 export default {
   name: "HeaderComponent",
@@ -85,6 +94,8 @@ export default {
     return {
       isSmallScreen: mdAndDown,
     };
+  components: {
+    BulletPointMenu,
   },
   data() {
     return {
@@ -92,11 +103,14 @@ export default {
       items: [
         { title: "Home", href: "#hero-section", mobileOnly: true },
         { title: "Voordelen", href: "#voordelen-section", mobileOnly: true },
-        { title: "Producten", href: "#product-section" },
         { title: "Aanbiedingen", href: "#aanbiedingen-section" },
         { title: "Over", href: "#about-section" },
         { title: "Contact", href: "#contact-section" },
       ],
+      productSubItems: [
+        { title: "Mannen", href: "#men-section" },
+        { title: "Vrouwen", href: "#women-section" },
+      ]
     };
   },
   watch: {
@@ -109,7 +123,6 @@ export default {
   },
   methods: {
     toggleDrawer() {
-      // Only toggle the drawer on small screens
       if (this.isSmallScreen) {
         this.drawer = !this.drawer;
       }
