@@ -14,6 +14,7 @@
       <div class="centered-nav" v-show="$vuetify.display.mdAndUp">
         <v-list dense>
           <v-list-item
+              rounded="xl"
               v-for="item in items"
               :key="item.title"
               @click="handleItemClick(item.href)"

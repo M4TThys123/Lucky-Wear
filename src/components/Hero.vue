@@ -1,15 +1,15 @@
 <template>
-  <v-container  >
-    <v-row>
-      <v-col cols="12">
+  <v-container   >
+    <v-row class="mt-md-8 mt-md-10">
+      <v-col cols="12" md="6" align-self="center">
         <h1 class="title font-weight-bold">De ultieme ondergoedervaring!</h1>
         <p class="description mb-5">
           Bij ons ontvang je elke maand ondergoed en lingerie van topkwaliteit direct bij je thuis.
           Ontdek ongeëvenaard comfort en stijlvolle designs zonder enige moeite. Probeer je eerste setje
           helemaal gratis en ervaar zelf het verschil!
         </p>
-        <v-row>
-          <v-col cols="12" class="d-flex">
+        <v-row class="mt-md-5">
+          <v-col cols="12"  class="d-flex">
             <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
               <v-btn class="button-class" rounded>Probeer gratis!</v-btn>
             </a>
@@ -19,7 +19,7 @@
             </v-btn>
           </v-col>
         </v-row>
-        <v-row>
+        <v-row class="mt-md-10">
           <v-col cols="12" class="d-flex">
             <v-img src="svg/paypal.svg" class="payment-icon" alt="betalings afbeelding: paypal"></v-img>
             <v-img src="svg/visa.svg" class="payment-icon" alt="betalings afbeelding: visa"></v-img>
@@ -28,30 +28,30 @@
           </v-col>
         </v-row>
       </v-col>
-    </v-row>
 
-    <v-row style="position: relative">
-      <v-col cols="12">
+      <v-col cols="12" md="6" style="position: relative">
         <v-img src="images/product-package_square.png"
                alt="Lucky Wear Package"
                style="border-radius: 24px"
                placeholder
         />
+
+        <div class="image-overlay">
+          <div>
+            <v-chip class="custom-chip-green" prepend-icon="mdi-checkbox-marked-circle"
+                    closable
+                    variant="elevated">Probeer gratis!
+            </v-chip>
+          </div>
+          <div>
+            <v-chip class="custom-chip-orange" prepend-icon="mdi-alert-circle"
+                    closable
+                    variant="elevated">Elke maand op de mat!
+            </v-chip>
+          </div>
+        </div>
       </v-col>
-      <div class="image-overlay">
-        <div>
-          <v-chip class="custom-chip-green" prepend-icon="mdi-checkbox-marked-circle"
-                  closable
-                  variant="elevated">Probeer gratis!
-          </v-chip>
-        </div>
-        <div>
-          <v-chip class="custom-chip-orange" prepend-icon="mdi-alert-circle"
-                  closable
-                  variant="elevated">Elke maand op de mat!
-          </v-chip>
-        </div>
-      </div>
+
     </v-row>
   </v-container>
 </template>
@@ -157,10 +157,18 @@ export default {
 /* Medium devices (greater than 960px) */
 @media (min-width: 961px) {
   /* Your CSS rules for medium devices go here */
+  .title{
+    font-size: 2.5rem;
+  }
 }
 
 /* Large devices (greater than 1264px) */
 @media (min-width: 1265px) {
+  .title{
+    font-size: 3rem;
+
+  }
+
   /* Your CSS rules for large devices go here */
 }
 
