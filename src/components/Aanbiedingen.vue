@@ -10,26 +10,26 @@
     </v-row>
     <div class="elevation-1 rounded-lg">
 
-    <v-row class="px-0 ma-0">
-        <v-col  cols="12" md="4" class="offer-card my-4 pa-0 px-4" v-for="offer in offers" :key="offer.title">
-
-         <v-card class="pa-4 elevation-0">
-          <v-card-title class="headline font-weight-bold mb-5 pa-0">{{ offer.title }}</v-card-title>
-          <v-card-subtitle class="pa-0">{{ offer.description }}</v-card-subtitle>
-          <v-card-text class="pa-0">
-            <div class="price large-font mt-5">{{ offer.price }}</div>
-            <v-btn class="button-class mt-3" :href="formLink" target="_blank" rounded>{{ offer.buttonText }}</v-btn>
-            <ul class="bullets pl-5 mt-5">
-              <li v-for="(benefit, index) in offer.benefits" :key="index" :class="{ 'text-grey': benefit.greyedOut }" class="mt-2">{{ benefit.text }}</li>
-            </ul>
-          </v-card-text>
-          <v-card-actions class="mt-10">
-            <v-btn text color="primary" :href="formLink" target="_blank">{{ offer.callToAction }}</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-
-    </v-row>
+      <v-row class="offer-row px-5">
+        <v-col cols="12" md="4" class="offer-card my-4 pa-0" v-for="offer in offers" :key="offer.title">
+          <v-card class="pa-5 elevation-0">
+            <v-card-title class="headline font-weight-bold mb-5 pa-0">{{ offer.title }}</v-card-title>
+            <v-card-subtitle class="pa-0">{{ offer.description }}</v-card-subtitle>
+            <v-card-text class="pa-0">
+              <div class="price large-fon t mt-5">{{ offer.price }}</div>
+              <!-- Use outlined property here -->
+              <v-btn outlined :class="{'button-class' : offer.bold, 'border-class' : !offer.bold}" class=" mt-3" :href="formLink" target="_blank" rounded>{{ offer.buttonText }}</v-btn>
+              <ul class="bullets pl-5 mt-5">
+                <li v-for="(benefit, index) in offer.benefits" :key="index" :class="{ 'text-grey': benefit.greyedOut }" class="mt-2">{{ benefit.text }}</li>
+              </ul>
+            </v-card-text>
+            <v-card-actions class="mt-10">
+              <!-- Use outlined property here for the second button -->
+              <v-btn text outlined color="primary" :href="formLink" target="_blank">{{ offer.callToAction }}</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
     </div>
   </v-container>
 </template>
@@ -53,7 +53,7 @@ export default {
             { text: '2 Weken om uit te testen', greyedOut: false },
             { text: 'Hoogste kwaliteit 95% katoen', greyedOut: false }
           ],
-          callToAction: 'Meld je nu aan →'
+          callToAction: 'Meld je nu aan →',
         },
         {
           title: 'Mannen ondergoed',
@@ -67,7 +67,9 @@ export default {
             { text: '2 Weken om uit te testen', greyedOut: false },
             { text: 'Hoogste kwaliteit 95% katoen', greyedOut: false }
           ],
-          callToAction: 'Meld je nu aan →'
+          callToAction: 'Meld je nu aan →',
+          bold: true
+
         },
         {
           title: 'Maandelijks opzegbaar',
@@ -85,6 +87,9 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    console.log(this.offers[1].bold);
   }
 };
 </script>
@@ -105,6 +110,12 @@ export default {
 .button-class {
   background-color: orange;
   color: white;
+}
+
+.border-class{
+  background: none;
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange);
 }
 .text-grey {
   color: grey;
