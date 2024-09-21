@@ -9,7 +9,7 @@
             md="4"
             class="d-flex align-start"
         >
-          <div class="ml-3">
+          <div class="ml-3 ml-md-0">
             <div class="d-flex align-items-center">
               <v-icon :color="item.iconColor" :size="item.iconSize">{{ item.icon }}</v-icon>
               <h3 class="font-weight-bold ml-3">{{ item.title }}</h3>

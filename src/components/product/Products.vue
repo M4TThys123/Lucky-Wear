@@ -1,13 +1,6 @@
 <template>
   <v-container>
-<!--    <v-row class="mt-4">-->
-<!--      <v-col cols="12" class="d-flex justify-center">-->
-<!--        <v-btn :class="{'button-class': selectedCategory === 'men'}" @click="selectedCategory = 'men'">Mannen</v-btn>-->
-<!--        <v-btn :class="{'button-class': selectedCategory === 'women'}" @click="selectedCategory = 'women'">Vrouwen</v-btn>-->
-<!--      </v-col>-->
-<!--    </v-row>-->
-
-<!--    Title, price and rating-->
+    <!-- Title, price and rating -->
     <v-row class="mt-4">
       <v-col cols="12">
         <h1 class="font-weight-bold">{{ selectedCategory === 'men' ? 'Mannen ondergoed' : 'Vrouwen lingerie set' }}</h1>
@@ -16,18 +9,21 @@
       </v-col>
     </v-row>
 
-<!--    Image carousel Mobile-->
-    <ProductImageWrapperMobile></ProductImageWrapperMobile>
+    <!-- Image carousel Mobile -->
+    <ProductImageWrapperMobile
+        :current-images="currentImages"
+        :selected-image.sync="selectedImage"
+    ></ProductImageWrapperMobile>
 
     <!--Carousel image-->
     <v-row>
       <v-col cols="12" class="d-flex justify-center mb-4">
         <v-carousel
-          v-model="selectedImage"
-          show-arrows-on-hover
-          hide-delimiters
-          class="main-image carousel-shadow"
-          height="300"
+            v-model="selectedImage"
+            show-arrows-on-hover
+            hide-delimiters
+            class="main-image carousel-shadow"
+            height="300"
         >
           <v-carousel-item v-for="(image, index) in currentImages" :key="index" :value="index">
             <v-img :src="image.src" :alt="image.alt" class="main-image"></v-img>
@@ -50,6 +46,7 @@
         </a>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col cols="12">
         <p class="mb-5">
@@ -89,32 +86,31 @@
 import ProductImageWrapperMobile from "@/components/product/ProductImageWrapperMobile.vue";
 
 export default {
-  name: 'ProductSection',
-  components: {ProductImageWrapperMobile},
+  name: "ProductSection",
+  components: { ProductImageWrapperMobile },
   data() {
     return {
-      selectedCategory: 'men',
+      selectedCategory: "men",
       selectedImage: 0,
       rating: 5,
       panels: [0, 1], // Open both panels by default
       menImages: [
-        { src: 'images/product-front.jpg', alt: "Men's Underwear" },
-        { src: 'images/product-packages.png', alt: 'Men\'s Underwear Small' },
+        { src: "images/product-front.jpg", alt: "Men's Underwear" },
+        { src: "images/product-packages.png", alt: "Men's Underwear Small" },
       ],
       womenImages: [
-        { src: 'images/placeholder.jpg', alt: "Coming Soon", disabled: true },
+        { src: "images/placeholder.jpg", alt: "Coming Soon", disabled: true },
       ],
-      menDescription: 'Onze ondergoed is vervaardigd uit een hoogwaardige mix van 95% katoen en 5% spandex, wat zorgt voor een comfortabele en flexibele pasvorm. Het product heeft een solide patroon en is gemaakt van gebreide stof, wat bijdraagt aan de duurzaamheid en ademende eigenschappen. Onder de categorie Boxers & Briefs, is dit ondergoed specifiek ontworpen voor volwassenen en biedt het verschillende functionaliteiten zoals antibacterieel, antistatisch, ademend, duurzaam en snel droog.',
-      womenDescription: 'Onze vrouwen ondergoed is vervaardigd uit een hoogwaardige mix van 95% katoen en 5% spandex, wat zorgt voor een comfortabele en flexibele pasvorm. Het product heeft een solide patroon en is gemaakt van gebreide stof, wat bijdraagt aan de duurzaamheid en ademende eigenschappen. Onder de categorie Boxers & Briefs, is dit ondergoed specifiek ontworpen voor volwassenen en biedt het verschillende functionaliteiten zoals antibacterieel, antistatisch, ademend, duurzaam en snel droog.',
+      menDescription:
+          "Onze ondergoed is vervaardigd uit een hoogwaardige mix van 95% katoen en 5% spandex, wat zorgt voor een comfortabele en flexibele pasvorm. Het product heeft een solide patroon en is gemaakt van gebreide stof, wat bijdraagt aan de duurzaamheid en ademende eigenschappen. Onder de categorie Boxers & Briefs, is dit ondergoed specifiek ontworpen voor volwassenen en biedt het verschillende functionaliteiten zoals antibacterieel, antistatisch, ademend, duurzaam en snel droog.",
+      womenDescription:
+          "Onze vrouwen ondergoed is vervaardigd uit een hoogwaardige mix van 95% katoen en 5% spandex, wat zorgt voor een comfortabele en flexibele pasvorm. Het product heeft een solide patroon en is gemaakt van gebreide stof, wat bijdraagt aan de duurzaamheid en ademende eigenschappen. Onder de categorie Boxers & Briefs, is dit ondergoed specifiek ontworpen voor volwassenen en biedt het verschillende functionaliteiten zoals antibacterieel, antistatisch, ademend, duurzaam en snel droog.",
     };
   },
   computed: {
     currentImages() {
-      return this.selectedCategory === 'men' ? this.menImages : this.womenImages;
+      return this.selectedCategory === "men" ? this.menImages : this.womenImages;
     },
-    // carouselHeight() {
-    //   return this.$vuetify.breakpoint.smAndDown ? 200 : 500;
-    // },
   },
 };
 </script>
