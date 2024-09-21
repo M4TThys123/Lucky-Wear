@@ -10,8 +10,8 @@
     </v-row>
     <div class="elevation-1 rounded-lg">
 
-    <v-row class="px-5 ma-0">
-        <v-col  cols="12" md="4" class="offer-card my-4 pa-0" v-for="offer in offers" :key="offer.title">
+    <v-row class="px-0 ma-0">
+        <v-col  cols="12" md="4" class="offer-card my-4 pa-0 px-4" v-for="offer in offers" :key="offer.title">
 
          <v-card class="pa-4 elevation-0">
           <v-card-title class="headline font-weight-bold mb-5 pa-0">{{ offer.title }}</v-card-title>
@@ -120,5 +120,30 @@ h2 {
   max-width: 944px;
   margin: 0 auto;
   font-size: 18px;
+}
+
+/* Border Styling */
+.offer-row {
+  border-top: 1px solid #ddd;
+}
+
+.offer-card {
+  border-left: 1px solid #ddd;
+}
+
+.offer-card:first-child {
+  border-left: none;
+}
+
+/* On mobile (breakpoint at 600px), we change the border behavior */
+@media (max-width: 600px) {
+  .offer-card {
+    border-left: none;
+    border-top: 1px solid #ddd;
+  }
+
+  .offer-card:first-child {
+    border-top: none;
+  }
 }
 </style>
