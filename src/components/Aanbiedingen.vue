@@ -2,31 +2,35 @@
   <v-container>
     <v-row class="mt-4">
       <v-col cols="12">
-        <h2 class="font-weight-bold">Onze aanbiedingen</h2>
-        <p class="subtitle-1">
+        <h2 class="font-weight-bold mb-5">Onze aanbiedingen</h2>
+        <p class="subtitle mb-5">
           Profiteer van onze exclusieve abonnementsdiensten voor premium ondergoed en lingerie. Elke maand gemak en topkwaliteit, direct bij je thuis.
         </p>
       </v-col>
     </v-row>
+    <div class="elevation-1 rounded-lg">
 
-    <v-row class="offer-card mb-4" v-for="offer in offers" :key="offer.title">
-      <v-col cols="12">
-        <v-card class="pa-4 elevation-1">
-          <v-card-title class="headline font-weight-bold">{{ offer.title }}</v-card-title>
-          <v-card-subtitle>{{ offer.description }}</v-card-subtitle>
-          <v-card-text>
-            <div class="price">{{ offer.price }}</div>
-            <v-btn class="button-class mb-3" :href="formLink" target="_blank" rounded>{{ offer.buttonText }}</v-btn>
-            <ul>
-              <li v-for="(benefit, index) in offer.benefits" :key="index" :class="{ 'text-grey': benefit.greyedOut }">{{ benefit.text }}</li>
+    <v-row class="px-5 ma-0">
+        <v-col  cols="12" md="4" class="offer-card my-4 pa-0" v-for="offer in offers" :key="offer.title">
+
+         <v-card class="pa-4 elevation-0">
+          <v-card-title class="headline font-weight-bold mb-5 pa-0">{{ offer.title }}</v-card-title>
+          <v-card-subtitle class="pa-0">{{ offer.description }}</v-card-subtitle>
+          <v-card-text class="pa-0">
+            <div class="price large-font mt-5">{{ offer.price }}</div>
+            <v-btn class="button-class mt-3" :href="formLink" target="_blank" rounded>{{ offer.buttonText }}</v-btn>
+            <ul class="bullets pl-5 mt-5">
+              <li v-for="(benefit, index) in offer.benefits" :key="index" :class="{ 'text-grey': benefit.greyedOut }" class="mt-2">{{ benefit.text }}</li>
             </ul>
           </v-card-text>
-          <v-card-actions>
+          <v-card-actions class="mt-10">
             <v-btn text color="primary" :href="formLink" target="_blank">{{ offer.callToAction }}</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
+
     </v-row>
+    </div>
   </v-container>
 </template>
 
@@ -93,6 +97,11 @@ export default {
   font-size: 2rem;
   color: black;
 }
+.bullets{
+  font-size: 18px;
+  font-weight: bold;
+
+}
 .button-class {
   background-color: orange;
   color: white;
@@ -102,5 +111,14 @@ export default {
 }
 .offer-card {
   margin-bottom: 1.5rem;
+}
+h2 {
+  text-align: center;
+}
+.subtitle{
+  text-align: center;
+  max-width: 944px;
+  margin: 0 auto;
+  font-size: 18px;
 }
 </style>

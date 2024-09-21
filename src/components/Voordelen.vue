@@ -1,7 +1,7 @@
 <template>
   <div class="voordelen-wrapper my-md-10">
     <v-container>
-      <v-row class="my-4">
+      <v-row class="my-4 ">
         <v-col
             v-for="(item, index) in voordelen"
             :key="index"

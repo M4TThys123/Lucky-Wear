@@ -15,6 +15,9 @@ html {
     margin: 0 auto;
     /*padding: 0 14px*/
 }
+.v-container{
+    padding: 0!important;
+}
 
 .button-class{
     color: var(--color-white) !important;
@@ -45,8 +48,9 @@ html {
 /* Medium devices (greater than 960px) */
 @media (min-width: 961px) {
     /* Your CSS rules for medium devices go here */
-    h1{
-        font-size: 2.5rem;
+    h1, .large-font{
+        font-size: 2.5rem !important;
+        font-weight: bold;
     }
     h2{
         font-size: 2rem !important;
