@@ -149,35 +149,6 @@ export default {
   margin-right: 20px;
 }
 
-/* Small devices (greater than 600px) */
-@media (min-width: 601px) {
-  /* Your CSS rules for small devices go here */
-}
-
-/* Medium devices (greater than 960px) */
-@media (min-width: 961px) {
-  /* Your CSS rules for medium devices go here */
-  .title{
-    font-size: 2.5rem;
-  }
-}
-
-/* Large devices (greater than 1264px) */
-@media (min-width: 1265px) {
-  .title{
-    font-size: 3rem;
-
-  }
-
-  /* Your CSS rules for large devices go here */
-}
-
-/* Extra large devices (greater than 1904px) */
-@media (min-width: 1905px) {
-  /* Your CSS rules for extra large devices go here */
-}
-
-
 
 @media screen and (min-width: 1920px) {
 
