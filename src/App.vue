@@ -6,7 +6,7 @@
       <section id="hero-section" class="container">
         <HeroSection class="my-5 pb-5"></HeroSection>
       </section>
-      <section id="voordelen-section" class="container">
+      <section id="voordelen-section">
         <VoordelenSection class="my-5 py-5"></VoordelenSection>
       </section>
       <section id="product-section" class="container">
