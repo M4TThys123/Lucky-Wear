@@ -1,11 +1,13 @@
 <template>
   <v-container>
-    <v-row class="mt-4">
-      <v-col cols="12" class="d-flex justify-center">
-        <v-btn :class="{'button-class': selectedCategory === 'men'}" @click="selectedCategory = 'men'">Mannen</v-btn>
-        <v-btn :class="{'button-class': selectedCategory === 'women'}" @click="selectedCategory = 'women'">Vrouwen</v-btn>
-      </v-col>
-    </v-row>
+<!--    <v-row class="mt-4">-->
+<!--      <v-col cols="12" class="d-flex justify-center">-->
+<!--        <v-btn :class="{'button-class': selectedCategory === 'men'}" @click="selectedCategory = 'men'">Mannen</v-btn>-->
+<!--        <v-btn :class="{'button-class': selectedCategory === 'women'}" @click="selectedCategory = 'women'">Vrouwen</v-btn>-->
+<!--      </v-col>-->
+<!--    </v-row>-->
+
+<!--    Title, price and rating-->
     <v-row class="mt-4">
       <v-col cols="12">
         <h1 class="font-weight-bold">{{ selectedCategory === 'men' ? 'Mannen ondergoed' : 'Vrouwen lingerie set' }}</h1>
@@ -13,6 +15,11 @@
         <v-rating v-model="rating" readonly color="amber" background-color="amber"></v-rating>
       </v-col>
     </v-row>
+
+<!--    Image carousel Mobile-->
+    <ProductImageWrapperMobile></ProductImageWrapperMobile>
+
+    <!--Carousel image-->
     <v-row>
       <v-col cols="12" class="d-flex justify-center mb-4">
         <v-carousel
@@ -28,16 +35,14 @@
         </v-carousel>
       </v-col>
     </v-row>
+
+    <!--Carousel image-->
     <v-row>
       <v-col v-for="(image, index) in currentImages" :key="index" cols="6" class="d-flex justify-center mb-2">
         <v-img :src="image.src" :alt="image.alt" class="small-image shadow" @click="selectedImage = index"></v-img>
       </v-col>
     </v-row>
-    <v-row v-if="selectedCategory === 'women'" class="my-4">
-      <v-col cols="12" class="d-flex justify-center">
-        <h2>Coming Soon</h2>
-      </v-col>
-    </v-row>
+
     <v-row class="my-4">
       <v-col cols="12">
         <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
@@ -81,8 +86,11 @@
 </template>
 
 <script>
+import ProductImageWrapperMobile from "@/components/product/ProductImageWrapperMobile.vue";
+
 export default {
   name: 'ProductSection',
+  components: {ProductImageWrapperMobile},
   data() {
     return {
       selectedCategory: 'men',
