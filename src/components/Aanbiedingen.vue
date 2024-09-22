@@ -115,7 +115,7 @@ export default {
 .border-class{
   background: none;
   color: var(--color-orange);
-  border: 1px solid var(--color-orange);
+  border: 2px solid var(--color-orange);
 }
 .text-grey {
   color: grey;

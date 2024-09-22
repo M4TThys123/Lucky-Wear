@@ -5,15 +5,22 @@
     --color-grey: #EBEBEB;
     --color-background-grey: #F7F8FA;
     --color-blue: #F7A74B;
+
+    --footer-color-prm: #14151A;
+    --footer-color-sec: #101115;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
+a{
+    text-decoration: none!important;
+}
 .container{
     max-width: 1400px;
     margin: 0 auto;
-    /*padding: 0 14px*/
+    padding: 0 14px
 }
 .v-container{
     padding: 0!important;

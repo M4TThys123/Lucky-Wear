@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'FooterComponent',
+  name: 'Footer01Component',
   data() {
     return {
       links: [

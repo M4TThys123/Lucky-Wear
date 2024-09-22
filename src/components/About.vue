@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="mt-4">
       <v-col cols="12">
-        <h2 class="font-weight-bold">Ons bedrijf</h2>
+        <h2 class="'font-weight-bold'">Ons bedrijf</h2>
         <p>
           In 2024 hebben wij, een groep enthousiaste ondernemers, ons bedrijf opgericht met één doel voor ogen: iedereen voorzien van hoogwaardig ondergoed, elke maand weer. Met gemak en comfort als onze kernwaarden, bieden wij onze klanten een abonnementsdienst aan die hen in staat stelt om zonder enige moeite premium ondergoed aan huis te ontvangen.
         </p>

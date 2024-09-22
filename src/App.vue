@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <HeaderComponent></HeaderComponent>
+      <HeaderComponent></HeaderComponent>
 
     <v-main>
       <section id="hero-section" class="container">
@@ -37,7 +37,7 @@ import VoordelenSection from "@/components/Voordelen.vue";
 import AanbiedingenSection from "@/components/Aanbiedingen.vue";
 import AboutSection from "@/components/About.vue";
 import ContactSection from "@/components/Contact.vue";
-import FooterComponent from "@/components/Footer.vue";
+import FooterComponent from "@/components/footer/Footer.vue";
 
 export default {
   name: 'App',
