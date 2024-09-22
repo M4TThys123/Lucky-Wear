@@ -8,11 +8,10 @@
         </p>
       </v-col>
     </v-row>
-    <div class="elevation-1 rounded-lg">
-
+    <div class="elevation-1 rounded-xl">
       <v-row class="offer-row px-5">
         <v-col cols="12" md="4" class="offer-card my-4 pa-0" v-for="offer in offers" :key="offer.title">
-          <v-card class="pa-5 elevation-0">
+          <v-card class="pa-5 elevation-0" rounded="xl">
             <v-card-title class="headline font-weight-bold mb-5 pa-0">{{ offer.title }}</v-card-title>
             <v-card-subtitle class="pa-0">{{ offer.description }}</v-card-subtitle>
             <v-card-text class="pa-0">
@@ -133,10 +132,6 @@ h2 {
   font-size: 18px;
 }
 
-/* Border Styling */
-.offer-row {
-  border-top: 1px solid #ddd;
-}
 
 .offer-card {
   border-left: 1px solid #ddd;
