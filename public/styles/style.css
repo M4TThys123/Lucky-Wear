@@ -46,26 +46,22 @@ a{
     margin: 0 auto;
 }
 
-
-/* Small devices (greater than 600px) */
-@media (min-width: 601px) {
-    /* Your CSS rules for small devices go here */
+h1, .large-font{
+    font-size: 2.5rem !important;
+    font-weight: bold;
 }
+h2{
+    font-size: 2rem !important;
+}
+
+h3{
+    font-size: 1.5rem !important;
+}
+
 
 /* Medium devices (greater than 960px) */
 @media (min-width: 961px) {
-    /* Your CSS rules for medium devices go here */
-    h1, .large-font{
-        font-size: 2.5rem !important;
-        font-weight: bold;
-    }
-    h2{
-        font-size: 2rem !important;
-    }
 
-    h3{
-        font-size: 1.5rem !important;
-    }
 }
 
 /* Large devices (greater than 1264px) */
@@ -89,7 +85,6 @@ a{
 
 /* Extra large devices (greater than 1904px) */
 @media (min-width: 1905px) {
-    /* Your CSS rules for extra large devices go here */
 }
 
 

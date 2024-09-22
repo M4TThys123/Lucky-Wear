@@ -1,40 +1,52 @@
 <template>
-  <v-footer class="footer" padless>
-    <v-container class="pt-10">
-      <v-row class="pt-15 footer-inner">
-        <v-col cols="12">
-          <figure>
-            <v-img
-                src="svg/lucky-wear__yellow.svg"
-                alt="Lucky Wear Logo"
-                class="logo"
-            ></v-img>
-          </figure>
-        </v-col>
+
+  <div class="footer-wrapper">
+    <v-footer class="footer" padless>
+      <v-container class="pt-10">
+        <v-row class=" footer-inner" justify-md="space-between">
+          <v-col cols="12" md="3">
+            <figure>
+              <v-img
+                  src="svg/lucky-wear__yellow.svg"
+                  alt="Lucky Wear Logo"
+                  class="logo"
+              ></v-img>
+            </figure>
+            <p class="location mt-10">Alkmaar<br>The Netherlands</p>
+
+          </v-col>
 
 
-        <v-col cols="12" class="">
-          <p class="location">Alkmaar<br>The Netherlands</p>
-          <v-list dense style="background: none !important;" class="mt-10">
-            <v-list-item  class="list-item mb-2"
-                          min-height="22px"
-                          height="auto"
-                          v-for="(link, index) in links" :key="index"
-                          @click="scrollToSection(link.href)"  >
+          <v-col cols="12" md="3" class="">
+            <v-list dense style="background: none !important;" >
+              <v-list-item  class="list-item mb-2"
+                            min-height="22px"
+                            height="auto"
+                            v-for="(link, index) in links" :key="index"
+                            @click="scrollToSection(link.href)"  >
                 <v-list-item-title class="list-item">{{ link.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-          <v-btn class="button-class" rounded>Probeer nu gratis!</v-btn>
-        </v-col>
-      </v-row>
+              </v-list-item>
+            </v-list>
+            <v-btn class="button-class" rounded>Probeer gratis!</v-btn>
+          </v-col>
 
-      <div class="copyright mt-4 footer-bottom">
-        <a href="/" class="text-white">
-        © 2024 LUCKY WEAR
-        </a>
-      </div>
-    </v-container>
-  </v-footer>
+          <v-col cols="12" >
+            <div class="copyright mt-4 footer-bottom">
+              <a href="/" class="text-white">
+                © 2024 LUCKY WEAR
+              </a>
+            </div>
+          </v-col>
+        </v-row>
+
+
+      </v-container>
+
+
+    </v-footer>
+
+
+  </div>
 </template>
 
 <script>
@@ -71,6 +83,10 @@ export default {
 </script>
 
 <style scoped>
+.footer-wrapper{
+  width: 100%;
+
+}
 .footer {
   background-color: var(--footer-color-prm)!important;
   color: white;
