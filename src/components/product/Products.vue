@@ -2,29 +2,22 @@
   <v-container>
     <!-- Title, price and rating -->
     <v-row class="mt-4">
-      <v-col cols="12">
+      <v-col cols="12" md="6">
         <h1 class="font-weight-bold">{{ selectedCategory === 'men' ? 'Mannen ondergoed' : 'Vrouwen lingerie set' }}</h1>
         <p class="price">{{ selectedCategory === 'men' ? '€14,95 p.m.' : '€29,95 p.m.' }}</p>
         <v-rating v-model="rating" readonly color="amber" background-color="amber"></v-rating>
-      </v-col>
-    </v-row>
 
-    <!-- Image carousel Mobile -->
-    <ProductImageWrapperMobile
-        :current-images="currentImages"
-        :selected-image="selectedImage"
-    ></ProductImageWrapperMobile>
+      <!-- Image carousel Mobile -->
+      <ProductImageWrapperMobile
+          v-if="$vuetify.display.smAndDown"
+          :current-images="currentImages"
+          :selected-image="selectedImage"
+      ></ProductImageWrapperMobile>
 
-    <v-row class="my-4">
-      <v-col cols="12">
         <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
           <v-btn class="button-class" rounded>Probeer nu gratis!</v-btn>
         </a>
-      </v-col>
-    </v-row>
 
-    <v-row>
-      <v-col cols="12">
         <p class="mb-5">
           {{ selectedCategory === 'men' ? menDescription : womenDescription }}
         </p>
@@ -53,6 +46,13 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
+      </v-col>
+      <v-col col="12" md="6"           v-if="$vuetify.display.smAndUp"
+    >
+        <ProductImageWrapperMobile
+          :current-images="currentImages"
+          :selected-image="selectedImage"
+      ></ProductImageWrapperMobile>
       </v-col>
     </v-row>
   </v-container>
