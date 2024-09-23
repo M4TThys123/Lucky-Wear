@@ -3,7 +3,8 @@
   <v-row>
     <v-col cols="12" class="d-flex justify-center mb-4">
       <v-carousel
-          v-model="selectedImage"
+          :value="selectedImage"
+          @change="$emit('update:selectedImage', $event)"
           show-arrows-on-hover
           hide-delimiters
           class="main-image carousel-shadow"
