@@ -38,7 +38,7 @@
 
       <!-- Desktop CTA Button -->
       <a href="https://eu.jotform.com/form/241725507462355" target="_blank" rel="noopener noreferrer">
-        <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 0!important;" class="button-class">Probeer gratis!</v-btn>
+        <v-btn v-show="$vuetify.display.mdAndUp" rounded style="margin-right: 10px!important;" class="button-class">Probeer gratis!</v-btn>
       </a>
 
       <!-- Mobile Hamburger Icon -->
@@ -132,6 +132,7 @@ export default {
 </script>
 
 <style scoped>
+
 /* Center the navigation between logo and Instagram icon */
 .v-toolbar-title {
   width: 140px;

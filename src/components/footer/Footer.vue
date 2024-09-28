@@ -29,20 +29,14 @@
             </v-list>
             <v-btn class="button-class" rounded>Probeer gratis!</v-btn>
           </v-col>
-
-          <v-col cols="12" >
-            <div class="copyright mt-4 footer-bottom">
-              <a href="/" class="text-white">
-                © 2024 LUCKY WEAR
-              </a>
-            </div>
-          </v-col>
         </v-row>
 
-
+        <div class="copyright mt-4 footer-bottom">
+          <a href="/" class="text-white">
+            © 2024 LUCKY WEAR
+          </a>
+        </div>
       </v-container>
-
-
     </v-footer>
 
 
@@ -95,6 +89,7 @@ export default {
 }
 .footer-inner{
   padding: 40px;
+  margin: 0!important;
 }
 .location {
   line-height: 22px;
